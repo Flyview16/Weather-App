@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weatherly/screens/city_management.dart';
+import 'package:weatherly/screens/daily_forecast.dart';
+import 'package:weatherly/screens/home_screen.dart';
+import 'package:weatherly/screens/search_screen.dart';
 
 void main() {
   runApp(const WeatherlyApp());
@@ -14,9 +18,15 @@ class WeatherlyApp extends StatefulWidget {
 class _WeatherlyAppState extends State<WeatherlyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {},
+      routes: {
+        HomeScreen.id: (context) => const HomeScreen(),
+        SearchScreen.id: (context) => const SearchScreen(),
+        DailyForecast.id: (context) => const DailyForecast(),
+        CityManagement.id: (context) => const CityManagement()
+      },
+      initialRoute: HomeScreen.id,
     );
   }
 }
