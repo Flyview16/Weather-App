@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'homescreen';
@@ -142,69 +142,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              children: [
-                                Icon(
-                                  Icons.air,
-                                  color: Colors.white,
-                                ),
-                                Text(
-                                  '13km/h',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Text(
-                                  'Wind',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ],
+                            WeatherParameters(
+                              iconData: Icons.air,
+                              value: '13km/h',
+                              label: 'Wind',
                             ),
-                            Column(
-                              children: [
-                                Icon(Icons.water_drop, color: Colors.blue),
-                                Text(
-                                  '24%',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Text(
-                                  'Humidity',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ],
+                            WeatherParameters(
+                              iconData: Icons.water_drop,
+                              value: '24%',
+                              label: 'Humidity',
+                              iconColor: Colors.blue,
                             ),
-                            Column(
-                              children: [
-                                Icon(
-                                  Icons.thunderstorm,
-                                  color: Colors.white,
-                                ),
-                                Text(
-                                  '87%',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Text(
-                                  'Chance of rain',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            WeatherParameters(
+                                iconData: Icons.thunderstorm,
+                                value: '87%',
+                                label: 'Chance of rain'),
                           ],
                         ),
                       ),
@@ -240,49 +192,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 130,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height: 100,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.blue),
-                                  borderRadius: BorderRadius.circular(35.0),
-                                ),
-                                child: const Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      '23°',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.cloud,
-                                      color: Colors.white,
-                                    ),
-                                    Text(
-                                      '10:00',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                        child: HourlyListView(),
                       )
                     ],
                   ),
