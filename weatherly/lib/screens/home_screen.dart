@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weatherly/components/widgets.dart';
+import 'package:weatherly/screens/daily_forecast.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'homescreen';
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Container(
                   padding:
-                      const EdgeInsets.only(left: 20.0, right: 20.0, top: 38.0),
+                      const EdgeInsets.only(left: 15.0, right: 15.0, top: 38.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -98,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       const Image(
-                        width: 240,
-                        height: 240,
+                        width: 228,
+                        height: 228,
                         image: AssetImage('images/cloud1.png'),
                       ),
                       const Column(
@@ -123,14 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'Monday,17 May',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Colors.grey,
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(
-                        height: 20.0,
+                        height: 30.0,
                         width: double.infinity,
                         child: Divider(
                           color: Colors.grey,
@@ -160,13 +161,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
                             'Today',
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 23,
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
@@ -174,7 +178,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             children: [
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, DailyForecast.id);
+                                },
                                 child: const Text(
                                   '7 days',
                                   style: TextStyle(
