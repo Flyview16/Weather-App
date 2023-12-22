@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weatherly/components/widgets.dart';
 import 'package:weatherly/screens/daily_forecast.dart';
+import 'package:weatherly/screens/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'homescreen';
@@ -66,7 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               const Icon(Icons.location_on),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, SearchScreen.id);
+                                },
                                 child: const Text(
                                   'Atlanta',
                                   style: TextStyle(

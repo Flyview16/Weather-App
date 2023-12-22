@@ -26,9 +26,9 @@ class _DailyForecastState extends State<DailyForecast> {
             children: [
               Container(
                 height: 320,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(30)),
-                  color: const Color(0xff202733).withOpacity(0.5),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  color: Color(0xff122437),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
@@ -66,7 +66,7 @@ class _DailyForecastState extends State<DailyForecast> {
                                     ),
                                   ),
                                   Text(
-                                    '/17',
+                                    '/17°',
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 35,
@@ -76,7 +76,7 @@ class _DailyForecastState extends State<DailyForecast> {
                                 ],
                               ),
                               Text(
-                                'Rainy-Cloudy',
+                                'Rainy - Cloudy',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 18,
@@ -156,7 +156,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Icon(Icons.calendar_month),
           Text(
-            '7 Day Forecast',
+            'Next 7 Days',
             style: TextStyle(
               fontSize: 23,
             ),

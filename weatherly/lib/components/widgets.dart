@@ -122,30 +122,24 @@ class WeeklyForecast extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             padding: const EdgeInsets.all(10.0),
-            height: 90,
+            height: 80,
             decoration: const BoxDecoration(
               color: Color(0xff2b406d),
               borderRadius: BorderRadius.all(
                 Radius.circular(18),
               ),
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Saturday',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20,
-                      ),
-                    ),
-                    Text('October 21'),
-                  ],
+                Text(
+                  '${week[index]}',
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
                 ),
-                Row(
+                const Row(
                   children: [
                     Image(
                       width: 40,
@@ -161,20 +155,22 @@ class WeeklyForecast extends StatelessWidget {
                     ),
                   ],
                 ),
-                Row(
+                const Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
-                      '+20',
+                      '+20°',
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20,
+                        color: Colors.white,
+                        fontSize: 23,
                       ),
                     ),
                     Text(
-                      '+14',
+                      '+14°',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                        color: Colors.grey,
+                        fontSize: 19,
                       ),
                     ),
                   ],
