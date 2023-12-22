@@ -29,7 +29,9 @@ class _SearchScreenState extends State<SearchScreen> {
                       width: 45,
                       height: 47,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.grey),
@@ -52,32 +54,35 @@ class _SearchScreenState extends State<SearchScreen> {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    const Expanded(
+                    Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white70,
                           hintText: 'Enter city name',
-                          suffixIcon: Icon(
-                            Icons.search,
+                          suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.search,
+                              size: 30.0,
+                            ),
                             color: Colors.blueGrey,
-                            size: 30.0,
                           ),
                           contentPadding:
-                              EdgeInsets.symmetric(horizontal: 25.0),
-                          border: OutlineInputBorder(
+                              const EdgeInsets.symmetric(horizontal: 25.0),
+                          border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10.0),
                             ),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10.0),
                             ),
                             borderSide:
                                 BorderSide(color: Colors.white, width: 1.0),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10.0),
                             ),
