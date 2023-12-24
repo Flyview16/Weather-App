@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weatherly/components/widgets.dart';
+import 'package:weatherly/screens/city_management.dart';
 import 'package:weatherly/screens/daily_forecast.dart';
 import 'package:weatherly/screens/search_screen.dart';
 
@@ -79,7 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, CityManagement.id);
+                            },
                             child: const Icon(
                               Icons.location_city_outlined,
                               color: Colors.black,
