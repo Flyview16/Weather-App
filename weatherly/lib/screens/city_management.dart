@@ -34,6 +34,32 @@ class _CityManagementState extends State<CityManagement> {
           ),
           centerTitle: true,
         ),
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: 0,
+            elevation: 0.0,
+            backgroundColor: Colors.transparent,
+            selectedFontSize: 18.0,
+            unselectedFontSize: 18.0,
+            selectedItemColor: Colors.white70,
+            unselectedItemColor: Colors.white70,
+            items: const [
+              BottomNavigationBarItem(
+                label: 'Edit',
+                icon: Icon(
+                  Icons.edit,
+                  color: Colors.blueGrey,
+                  size: 40.0,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Add',
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.blueGrey,
+                  size: 40.0,
+                ),
+              ),
+            ]),
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
