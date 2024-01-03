@@ -34,7 +34,123 @@ class _CityManagementState extends State<CityManagement> {
           ),
           centerTitle: true,
         ),
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipPath(
+                    clipper: MyCustomClipper(),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(25.0),
+                      child: Container(
+                        height: 190,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xff2b406d),
+                              Colors.deepPurple,
+                            ],
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.only(
+                            left: 15.0,
+                            right: 18.0,
+                            top: 18.0,
+                            bottom: 8.0,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '23°',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 50.0,
+                                ),
+                              ),
+                              Text(
+                                'H:26°  L:16°',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Tokyo, Japan',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Showers',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Image(
+                      height: 160,
+                      width: 160,
+                      image: AssetImage('images/rainy.png'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
+}
+
+class MyCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.moveTo(0, 50);
+    path.quadraticBezierTo(
+      5,
+      5,
+      80,
+      20,
+    );
+    path.lineTo(size.width - 55, size.height - 120);
+    path.quadraticBezierTo(
+      size.width, // Control point X
+      size.height - 112, // Control point Y
+      size.width, // End point X
+      size.height - 80, // End point Y
+    );
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
