@@ -25,19 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              //blur effect
-              BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 4,
-                  sigmaY: 4,
-                ),
-                child: Container(),
+        child: Stack(
+          children: [
+            //blur effect
+            BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 4,
+                sigmaY: 4,
               ),
-              //child
-              Container(
+              child: Container(),
+            ),
+            //child
+            SingleChildScrollView(
+              child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -104,18 +104,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      const Image(
-                        width: 228,
-                        height: 228,
-                        image: AssetImage('images/cloud1.png'),
+                      Image(
+                        width: MediaQuery.of(context).size.width * 0.53,
+                        height: MediaQuery.of(context).size.width * 0.53,
+                        image: const AssetImage('images/cloud1.png'),
                       ),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             '21',
                             style: TextStyle(
-                              fontSize: 135,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.33,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -123,14 +124,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'Thunderstorm',
                             style: TextStyle(
-                              fontSize: 35,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.088,
                               color: Colors.white,
                             ),
                           ),
                           Text(
                             'Monday,17 May',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.048,
                               color: Colors.grey,
                             ),
                           ),
@@ -213,8 +216,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
