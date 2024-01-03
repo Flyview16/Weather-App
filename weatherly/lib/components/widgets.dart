@@ -61,8 +61,8 @@ class HourlyListView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            height: 90,
-            width: 80,
+            height: MediaQuery.of(context).size.width * 0.19,
+            width: MediaQuery.of(context).size.width * 0.19,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.blue),
               borderRadius: BorderRadius.circular(35.0),
@@ -78,7 +78,7 @@ class HourlyListView extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  Icons.cloud,
+                  Icons.cloud_outlined,
                   color: Colors.white,
                 ),
                 Text(
@@ -122,7 +122,7 @@ class WeeklyForecast extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             padding: const EdgeInsets.all(10.0),
-            height: 80,
+            height: MediaQuery.of(context).size.height * 0.08,
             decoration: const BoxDecoration(
               color: Color(0xff2b406d),
               borderRadius: BorderRadius.all(

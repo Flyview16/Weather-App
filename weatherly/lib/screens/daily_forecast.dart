@@ -25,13 +25,16 @@ class _DailyForecastState extends State<DailyForecast> {
           child: Column(
             children: [
               Container(
-                height: 320,
+                width: MediaQuery.of(context).size.width * 1.0,
+                height: MediaQuery.of(context).size.height * 0.314,
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30),
+                  ),
                   color: Color(0xff122437),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -39,9 +42,9 @@ class _DailyForecastState extends State<DailyForecast> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Image(
-                            width: 180,
-                            height: 180,
-                            image: AssetImage('images/rainy.png'),
+                            width: MediaQuery.of(context).size.width * 0.37,
+                            height: MediaQuery.of(context).size.width * 0.37,
+                            image: const AssetImage('images/rainy.png'),
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +53,8 @@ class _DailyForecastState extends State<DailyForecast> {
                                 'Tomorrow',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 25,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.048,
                                 ),
                               ),
                               Row(
@@ -61,7 +65,9 @@ class _DailyForecastState extends State<DailyForecast> {
                                     '20',
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 80,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.16,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -69,7 +75,9 @@ class _DailyForecastState extends State<DailyForecast> {
                                     '/17°',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 35,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.07,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -79,7 +87,8 @@ class _DailyForecastState extends State<DailyForecast> {
                                 'Rainy - Cloudy',
                                 style: TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 18,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.043,
                                 ),
                               ),
                             ],
@@ -88,13 +97,13 @@ class _DailyForecastState extends State<DailyForecast> {
                       ),
                       SizedBox(
                         width: double.infinity,
-                        height: 20,
-                        child: Divider(
+                        height: MediaQuery.of(context).size.width * 0.02,
+                        child: const Divider(
                           color: Colors.grey,
                           thickness: 0.5,
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
