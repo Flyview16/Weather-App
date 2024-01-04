@@ -71,10 +71,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {
                                   Navigator.pushNamed(context, SearchScreen.id);
                                 },
-                                child: const Text(
+                                child: Text(
                                   'Atlanta',
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      fontSize: 35, color: Colors.white),
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.085,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               )
                             ],
