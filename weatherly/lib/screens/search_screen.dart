@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/constants.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String id = 'searchscreen';
@@ -31,16 +32,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.grey),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-                        ),
+                        style: kBackButtonStyle,
                         child: const Padding(
                           padding: EdgeInsets.only(left: 7.0),
                           child: Icon(
@@ -55,43 +47,16 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     Expanded(
                       child: TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white70,
-                          hintText: 'Enter city name',
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.search,
-                              size: 30.0,
-                            ),
-                            color: Colors.blueGrey,
+                          decoration: kTextfieldDecoration.copyWith(
+                        suffixIcon: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.search,
+                            size: 30.0,
                           ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 25.0),
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                          ),
-                          enabledBorder: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 1.0),
-                          ),
-                          focusedBorder: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                            borderSide: BorderSide(
-                              color: Color(0xff122437),
-                              width: 2.0,
-                            ),
-                          ),
+                          color: Colors.blueGrey,
                         ),
-                      ),
+                      )),
                     ),
                   ],
                 ),

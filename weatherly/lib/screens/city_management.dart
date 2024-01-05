@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/constants.dart';
+import 'package:weatherly/components/widgets.dart';
 import 'package:weatherly/screens/search_screen.dart';
 
 class CityManagement extends StatefulWidget {
@@ -38,7 +40,6 @@ class _CityManagementState extends State<CityManagement> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(8.0),
           child: BottomNavigationBar(
-              currentIndex: 0,
               elevation: 0.0,
               backgroundColor: Colors.transparent,
               selectedFontSize: MediaQuery.of(context).size.width * 0.04,
@@ -95,8 +96,8 @@ class _CityManagementState extends State<CityManagement> {
                             ],
                           ),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
                             left: 15.0,
                             right: 18.0,
                             top: 18.0,
@@ -108,35 +109,24 @@ class _CityManagementState extends State<CityManagement> {
                             children: [
                               Text(
                                 '23°',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 50.0,
-                                ),
+                                style:
+                                    kHourlyTextStyle.copyWith(fontSize: 50.0),
                               ),
                               Text(
                                 'H:26°  L:16°',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 18.0,
-                                ),
+                                style: kWeeklyTextStyle.copyWith(fontSize: 18),
                               ),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Tokyo, Japan',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.0,
-                                    ),
+                                    style: kHourlyTextStyle,
                                   ),
                                   Text(
                                     'Showers',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.0,
-                                    ),
+                                    style: kHourlyTextStyle,
                                   ),
                                 ],
                               )
@@ -163,32 +153,4 @@ class _CityManagementState extends State<CityManagement> {
       ),
     );
   }
-}
-
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.moveTo(0, 50);
-    path.quadraticBezierTo(
-      5,
-      5,
-      80,
-      20,
-    );
-    path.lineTo(size.width - 55, size.height - 120);
-    path.quadraticBezierTo(
-      size.width, // Control point X
-      size.height - 112, // Control point Y
-      size.width, // End point X
-      size.height - 80, // End point Y
-    );
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/constants.dart';
 
 // Weather parameters
 class WeatherParameters extends StatelessWidget {
@@ -67,26 +68,20 @@ class HourlyListView extends StatelessWidget {
               border: Border.all(color: Colors.blue),
               borderRadius: BorderRadius.circular(35.0),
             ),
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   '23°',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+                  style: kHourlyTextStyle,
                 ),
-                Icon(
+                const Icon(
                   Icons.cloud_outlined,
                   color: Colors.white,
                 ),
                 Text(
                   '10:00',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+                  style: kHourlyTextStyle,
                 ),
               ],
             ),
@@ -134,44 +129,32 @@ class WeeklyForecast extends StatelessWidget {
               children: [
                 Text(
                   '${week[index]}',
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20,
-                  ),
+                  style: kWeeklyTextStyle,
                 ),
-                const Row(
+                Row(
                   children: [
-                    Image(
+                    const Image(
                       width: 40,
                       height: 40,
                       image: AssetImage('images/cloud1.png'),
                     ),
                     Text(
                       'Cloudy',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20,
-                      ),
+                      style: kWeeklyTextStyle,
                     ),
                   ],
                 ),
-                const Row(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
                       '+20°',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 23,
-                      ),
+                      style: kHourlyTextStyle.copyWith(fontSize: 23),
                     ),
                     Text(
                       '+14°',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 19,
-                      ),
+                      style: kWeeklyTextStyle.copyWith(fontSize: 19),
                     ),
                   ],
                 )
