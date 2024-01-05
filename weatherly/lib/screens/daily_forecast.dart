@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/constants.dart';
 import 'package:weatherly/components/widgets.dart';
 
 class DailyForecast extends StatefulWidget {
@@ -19,7 +20,7 @@ class _DailyForecastState extends State<DailyForecast> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const _CustomAppBar(),
+        appBar: const CustomAppBar(),
         body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -51,11 +52,10 @@ class _DailyForecastState extends State<DailyForecast> {
                             children: [
                               Text(
                                 'Tomorrow',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * 0.048,
-                                ),
+                                style: kHourlyTextStyle.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.048),
                               ),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -63,8 +63,7 @@ class _DailyForecastState extends State<DailyForecast> {
                                 children: [
                                   Text(
                                     '20',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                                    style: kHourlyTextStyle.copyWith(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.16,
@@ -73,8 +72,7 @@ class _DailyForecastState extends State<DailyForecast> {
                                   ),
                                   Text(
                                     '/17°',
-                                    style: TextStyle(
-                                      color: Colors.grey,
+                                    style: kWeeklyTextStyle.copyWith(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.07,
@@ -85,11 +83,10 @@ class _DailyForecastState extends State<DailyForecast> {
                               ),
                               Text(
                                 'Rainy - Cloudy',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * 0.043,
-                                ),
+                                style: kWeeklyTextStyle.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.043),
                               ),
                             ],
                           ),
@@ -142,39 +139,4 @@ class _DailyForecastState extends State<DailyForecast> {
       ),
     );
   }
-}
-
-class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const _CustomAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back_ios),
-      ),
-      title: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.calendar_month),
-          Text(
-            'Next 7 Days',
-            style: TextStyle(
-              fontSize: 23,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(60.0);
 }

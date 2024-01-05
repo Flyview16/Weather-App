@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:weatherly/components/constants.dart';
 import 'package:weatherly/components/widgets.dart';
 import 'package:weatherly/screens/city_management.dart';
 import 'package:weatherly/screens/daily_forecast.dart';
@@ -74,12 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text(
                                   'Atlanta',
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.085,
-                                    color: Colors.white,
-                                  ),
+                                  style: kHourlyTextStyle.copyWith(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.085),
                                 ),
                               )
                             ],
@@ -119,28 +118,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             '21',
-                            style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.33,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: kHourlyTextStyle.copyWith(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.33,
+                                fontWeight: FontWeight.w500),
                           ),
                           Text(
                             'Thunderstorm',
-                            style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.088,
-                              color: Colors.white,
-                            ),
+                            style: kHourlyTextStyle.copyWith(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.088),
                           ),
                           Text(
                             'Monday,17 May',
-                            style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.048,
-                              color: Colors.grey,
-                            ),
+                            style: kWeeklyTextStyle.copyWith(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.048),
                           ),
                         ],
                       ),
@@ -181,13 +174,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             'Today',
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
+                            style: kHourlyTextStyle.copyWith(
+                                fontSize: 23, fontWeight: FontWeight.w500),
                           ),
                           Row(
                             children: [
@@ -198,10 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                                 child: const Text(
                                   '7 days',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 20,
-                                  ),
+                                  style: kWeeklyTextStyle,
                                 ),
                               ),
                               const Icon(

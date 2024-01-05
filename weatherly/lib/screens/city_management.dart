@@ -125,7 +125,7 @@ class _CityManagementState extends State<CityManagement> {
                                     style: kHourlyTextStyle,
                                   ),
                                   Text(
-                                    'Showers',
+                                    'ThunderStorm',
                                     style: kHourlyTextStyle,
                                   ),
                                 ],

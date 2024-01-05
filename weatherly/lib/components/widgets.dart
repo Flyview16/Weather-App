@@ -47,6 +47,40 @@ class WeatherParameters extends StatelessWidget {
   }
 }
 
+// Custom App Bar for weekly forecast screen
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: const Icon(Icons.arrow_back_ios),
+      ),
+      title: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.calendar_month),
+          Text(
+            'Next 7 Days',
+            style: TextStyle(
+              fontSize: 23,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(60.0);
+}
+
 // Listview for hourly data
 class HourlyListView extends StatelessWidget {
   const HourlyListView({
@@ -68,14 +102,14 @@ class HourlyListView extends StatelessWidget {
               border: Border.all(color: Colors.blue),
               borderRadius: BorderRadius.circular(35.0),
             ),
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   '23°',
                   style: kHourlyTextStyle,
                 ),
-                const Icon(
+                Icon(
                   Icons.cloud_outlined,
                   color: Colors.white,
                 ),
@@ -131,9 +165,9 @@ class WeeklyForecast extends StatelessWidget {
                   '${week[index]}',
                   style: kWeeklyTextStyle,
                 ),
-                Row(
+                const Row(
                   children: [
-                    const Image(
+                    Image(
                       width: 40,
                       height: 40,
                       image: AssetImage('images/cloud1.png'),
@@ -165,4 +199,33 @@ class WeeklyForecast extends StatelessWidget {
       },
     );
   }
+}
+
+//Custom Clipper path
+class MyCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.moveTo(0, 50);
+    path.quadraticBezierTo(
+      5, // Control point X
+      5, // Control point Y
+      80, // End point X
+      20, // End point Y
+    );
+    path.lineTo(size.width - 55, size.height - 120);
+    path.quadraticBezierTo(
+      size.width, // Control point X
+      size.height - 112, // Control point Y
+      size.width, // End point X
+      size.height - 80, // End point Y
+    );
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
