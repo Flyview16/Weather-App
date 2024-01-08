@@ -5,6 +5,7 @@ import 'package:weatherly/components/widgets.dart';
 import 'package:weatherly/screens/city_management.dart';
 import 'package:weatherly/screens/daily_forecast.dart';
 import 'package:weatherly/screens/search_screen.dart';
+import 'package:weatherly/services/location.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'homescreen';
@@ -16,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Location location = Location();
+
+  @override
+  void initState() async {
+    super.initState();
+    location.getCurrentLocation();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Image(
                         width: MediaQuery.of(context).size.width * 0.53,
-                        height: MediaQuery.of(context).size.width * 0.53,
+                        height: MediaQuery.of(context).size.height * 0.252,
                         image: const AssetImage('images/cloud1.png'),
                       ),
                       Column(
@@ -120,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             '21',
                             style: kHourlyTextStyle.copyWith(
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.33,
+                                    MediaQuery.of(context).size.width * 0.32,
                                 fontWeight: FontWeight.w500),
                           ),
                           Text(

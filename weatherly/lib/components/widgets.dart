@@ -7,8 +7,6 @@ class WeatherParameters extends StatelessWidget {
   final String value;
   final String label;
   final Color iconColor;
-  final Color textColor;
-  final Color labelColor;
 
   const WeatherParameters({
     super.key,
@@ -16,8 +14,6 @@ class WeatherParameters extends StatelessWidget {
     required this.value,
     required this.label,
     this.iconColor = Colors.white,
-    this.textColor = Colors.white,
-    this.labelColor = Colors.grey,
   });
 
   @override
@@ -30,17 +26,13 @@ class WeatherParameters extends StatelessWidget {
         ),
         Text(
           value,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 17,
-          ),
+          style: kHourlyTextStyle.copyWith(
+              fontSize: MediaQuery.of(context).size.height * 0.021),
         ),
         Text(
           label,
-          style: TextStyle(
-            color: labelColor,
-            fontSize: 18,
-          ),
+          style: kWeeklyTextStyle.copyWith(
+              fontSize: MediaQuery.of(context).size.height * 0.021),
         ),
       ],
     );
@@ -150,7 +142,7 @@ class WeeklyForecast extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(7.5),
             height: MediaQuery.of(context).size.height * 0.08,
             decoration: const BoxDecoration(
               color: Color(0xff2b406d),
@@ -184,11 +176,13 @@ class WeeklyForecast extends StatelessWidget {
                   children: [
                     Text(
                       '+20°',
-                      style: kHourlyTextStyle.copyWith(fontSize: 23),
+                      style: kHourlyTextStyle.copyWith(
+                          fontSize: MediaQuery.of(context).size.height * 0.03),
                     ),
                     Text(
                       '+14°',
-                      style: kWeeklyTextStyle.copyWith(fontSize: 19),
+                      style: kWeeklyTextStyle.copyWith(
+                          fontSize: MediaQuery.of(context).size.height * 0.022),
                     ),
                   ],
                 )

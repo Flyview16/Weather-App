@@ -27,7 +27,7 @@ class _DailyForecastState extends State<DailyForecast> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 1.0,
-                height: MediaQuery.of(context).size.height * 0.314,
+                height: MediaQuery.of(context).size.height * 0.318,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -44,7 +44,7 @@ class _DailyForecastState extends State<DailyForecast> {
                         children: [
                           Image(
                             width: MediaQuery.of(context).size.width * 0.37,
-                            height: MediaQuery.of(context).size.width * 0.37,
+                            height: MediaQuery.of(context).size.height * 0.17,
                             image: const AssetImage('images/rainy.png'),
                           ),
                           Column(
@@ -65,8 +65,8 @@ class _DailyForecastState extends State<DailyForecast> {
                                     '20',
                                     style: kHourlyTextStyle.copyWith(
                                       fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.16,
+                                          MediaQuery.of(context).size.height *
+                                              0.075,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -74,8 +74,8 @@ class _DailyForecastState extends State<DailyForecast> {
                                     '/17°',
                                     style: kWeeklyTextStyle.copyWith(
                                       fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.07,
+                                          MediaQuery.of(context).size.height *
+                                              0.0425,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -94,7 +94,7 @@ class _DailyForecastState extends State<DailyForecast> {
                       ),
                       SizedBox(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.width * 0.02,
+                        height: MediaQuery.of(context).size.height * 0.01,
                         child: const Divider(
                           color: Colors.grey,
                           thickness: 0.5,
