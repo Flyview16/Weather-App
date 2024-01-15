@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Location location = Location();
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     location.getCurrentLocation();
   }
