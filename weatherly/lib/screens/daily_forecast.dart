@@ -27,7 +27,6 @@ class _DailyForecastState extends State<DailyForecast> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 1.0,
-                height: MediaQuery.of(context).size.height * 0.318,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),

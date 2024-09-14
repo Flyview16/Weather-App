@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'Today',
                             style: kHourlyTextStyle.copyWith(
-                                fontSize: 23, fontWeight: FontWeight.w500),
+                                fontSize: 20, fontWeight: FontWeight.w500),
                           ),
                           Row(
                             children: [

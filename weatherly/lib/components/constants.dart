@@ -11,8 +11,8 @@ const kWeeklyTextStyle = TextStyle(
 );
 
 var kBackButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
-  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+  backgroundColor: WidgetStateProperty.all<Color>(Colors.grey),
+  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10.0),
     ),
