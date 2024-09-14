@@ -52,17 +52,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onPressed: () {
           Navigator.pop(context);
         },
-        icon: const Icon(Icons.arrow_back_ios),
+        icon: const Icon(
+          Icons.arrow_back_ios,
+          color: Colors.grey,
+          size: 20,
+        ),
       ),
       title: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.calendar_month),
+          Icon(
+            Icons.calendar_month,
+            color: Colors.white,
+            size: 20,
+          ),
           Text(
             'Next 7 Days',
-            style: TextStyle(
-              fontSize: 23,
-            ),
+            style: kHourlyTextStyle,
           ),
         ],
       ),
